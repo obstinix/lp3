@@ -1,0 +1,22 @@
+# C/C++ build output
+*.exe
+*.out
+*.o
+*.obj
+
+# Python generated files
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+test/
+
