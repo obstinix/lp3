@@ -1,229 +1,150 @@
 # LP-3 Laboratory Programs
 
-Lab programs, practical instructions and viva notes for Laboratory Practice III
-(LP-3). The repository covers three areas:
+Programs, datasets and practical notes for Laboratory Practice III. The work is
+grouped into three subject folders:
 
-- **BT**: Blockchain Technology
-- **DAA**: Design and Analysis of Algorithms
-- **ML**: Machine Learning
-
-It also includes small Bash and PowerShell menus that download only the files
-you pick, so you don't need Git.
-
-## Included programs and experiments
-
-### Blockchain Technology (BT)
-
-| Practical | Topic | Files |
-|---|---|---|
-| 1 | MetaMask setup and Ether transaction fees | `BT/Practical 1/INSTRUCTION.MD`, `viva.md` |
-| 2 | MetaMask wallet for crypto transactions | `BT/Practical 2/instruction.md`, `viva.md` |
-| 3 | Bank account smart contract (Sepolia) | `Programs/BT/Bank.sol`, `Programs/BT/SimpleStorage.sol` |
-| 4 | Student data with structures, arrays and fallback | `Programs/BT/StudentRegistry.sol` |
-| 5 | Hyperledger Fabric student registry | `Programs/BT/setup-fabric.sh` |
-
-Practicals 3 to 5 also have `instruction.md` and `viva.md` files under `BT/Practical N/`.
-
-### Design and Analysis of Algorithms (DAA)
-
-| Program | C++ | Python |
-|---|---|---|
-| Fibonacci series (recursive and non-recursive) | `fibonacci.cpp` | `recursive.py`, `non_recursive.py` |
-| Huffman encoding (greedy) | `huffman.cpp` | none |
-| 0/1 Knapsack | `knapsack.cpp` | none |
-| N-Queens (backtracking) | `nqueens.cpp` | `nqueens.py` |
-| Quick sort analysis (deterministic and randomized) | `quicksort.cpp` | `quicksort.py` |
-
-Each folder under `DAA/` also has a `viva.md` file. Copies of the C++ files are
-in `Programs/DAA/`.
-
-### Machine Learning (ML)
-
-| Notebook | Experiment | Dataset expected |
-|---|---|---|
-| `ML_1_UBER.ipynb` | Uber fare prediction (regression) | `uber.csv` |
-| `ML_2_EMAIL_SPAM.ipynb` | Email spam classification | `emails.csv` |
-| `ML_3_BANK_CHURN.ipynb` | Bank customer churn (neural network) | `Churn_Modelling.csv` |
-| `ML_5_DIABETES.ipynb` | Diabetes classification | `diabetes.csv` |
-| `ML_6_SALES.ipynb` | Sales data clustering | `sales_data_sample.csv` |
-
-The datasets aren't included in this repository. Put each CSV in the same folder
-as its notebook before you run it.
-
-## Technologies used
-
-- **C++17** with `g++`, for the DAA programs
-- **Python 3**, for the DAA Python versions
-- **Jupyter Notebook** with pandas, NumPy, scikit-learn, Matplotlib, seaborn and TensorFlow, for ML
-- **Solidity ^0.8.20** in Remix IDE with MetaMask on the Sepolia testnet, for BT practicals 1 to 4
-- **Hyperledger Fabric** with Docker on Ubuntu/Linux, for BT practical 5
-- **Bash** and **PowerShell**, for the selective download menus
-
-## Repository structure
+- `BT` for Blockchain Technology
+- `DAA` for Design and Analysis of Algorithms
+- `ML` for Machine Learning
 
 ```text
 lp3/
-├── BT/
-│   ├── Practical 1 … Practical 5/   Instructions and viva notes (P5 includes setup-fabric.sh)
-├── DAA/
-│   ├── 1_Fibonacci Series/          fibonacci.cpp, recursive.py, non_recursive.py, viva.md
-│   ├── 2_huffman encoding/          huffman.cpp, viva.md
-│   ├── 3_Knapsack/                  knapsack.cpp, viva.md
-│   ├── 5_nqueens/                   nqueens.cpp, nqueens.py, viva.md
-│   └── 6_quick sort analysis/       quicksort.cpp, quicksort.py, viva.md
-├── Programs/                        Standalone copies used by the download menus
-│   ├── BT/                          Bank.sol, SimpleStorage.sol, StudentRegistry.sol, setup-fabric.sh
-│   ├── DAA/                         The five C++ programs
-│   ├── ML/                          The five Jupyter notebooks
-│   ├── cmd.md                       Per-file download and run commands (CMD, PowerShell, Linux)
-│   ├── lp3-programs.sh              Bash download menu
-│   └── lp3-programs.ps1             PowerShell download menu
-└── README.md
+├── BT/                 Solidity contracts, Fabric script, practical and viva notes
+├── DAA/                C++ and Python programs, viva notes
+├── ML/                 Jupyter notebooks and their CSV datasets
+├── lp3-programs.sh     Download menu for single files (Bash)
+└── lp3-programs.ps1    Download menu for single files (PowerShell)
 ```
 
 ## Download
-
-| Method | Link |
-|---|---|
-| Repository | <https://github.com/obstinix/lp3> |
-| ZIP | <https://github.com/obstinix/lp3/archive/refs/heads/main.zip> |
-| TAR.GZ | <https://github.com/obstinix/lp3/archive/refs/heads/main.tar.gz> |
-| Releases | <https://github.com/obstinix/lp3/releases> |
-
-Clone the repository with Git:
 
 ```bash
 git clone https://github.com/obstinix/lp3.git
 ```
 
-Download it as a ZIP file:
-
 ```bash
 curl -L https://github.com/obstinix/lp3/archive/refs/heads/main.zip -o lp3.zip
 ```
-
-Download it as a TAR.GZ file:
 
 ```bash
 curl -L https://github.com/obstinix/lp3/archive/refs/heads/main.tar.gz -o lp3.tar.gz
 ```
 
-Extract the archive:
+To download individual programs, use the menu scripts:
 
 ```bash
-unzip lp3.zip            # creates lp3-main/
-tar -xzf lp3.tar.gz      # creates lp3-main/
+curl -fL https://raw.githubusercontent.com/obstinix/lp3/main/lp3-programs.sh -o lp3-programs.sh
+bash lp3-programs.sh list
+bash lp3-programs.sh download daa quicksort
 ```
 
-On Windows, use `curl.exe` instead of `curl` in PowerShell. To extract the ZIP
-file, run `Expand-Archive lp3.zip`.
+On Windows, run `lp3-programs.ps1` with
+`powershell -ExecutionPolicy Bypass -File .\lp3-programs.ps1 list` instead.
+The menus download only the notebooks, not the datasets.
 
-### Download single programs with the menu
+## BT: Blockchain Technology
 
-The menu downloads only the files you choose. They're saved to
-`./LP-3-Programs/` by default.
+| Practical | Topic | Files |
+|---|---|---|
+| 1 | MetaMask setup and Ether transaction fees | `practical1_instruction.md` |
+| 2 | MetaMask wallet for crypto transactions | `practical2_instruction.md` |
+| 3 | Bank account smart contract | `Bank.sol`, `SimpleStorage.sol`, `practical3_instruction.md` |
+| 4 | Student data using structures, arrays and fallback | `StudentRegistry.sol`, `practical4_instruction.md` |
+| 5 | Hyperledger Fabric student registry | `setup-fabric.sh`, `practical5_instruction.md` |
 
-On Linux, macOS, WSL or Git Bash:
+Each practical also has a `practicalN_viva.md` file with viva questions.
+
+**Dependencies:** Remix IDE, MetaMask with Sepolia test ETH, and Solidity 0.8.20
+or newer. Practical 5 also needs Ubuntu or WSL with `sudo` access. The script
+installs Docker and Fabric 2.5 itself.
+
+**Run Practicals 3 and 4:** open the `.sol` file in
+[Remix](https://remix.ethereum.org/). Compile it with 0.8.20, then deploy it
+through *Injected Provider - MetaMask*.
+
+**Expected results:**
+
+- `SimpleStorage`: `getValue()` returns the last value stored with `setValue()`.
+- `Bank`: `deposit` and `withdraw` update `getBalance()`. Withdrawing more than your balance reverts with `Insufficient balance`.
+- `StudentRegistry`: `addStudent`, `getStudent`, `updateStudent` and `getStudentCount` manage the records. Sending ETH with unknown calldata increases `fallbackCallCount`.
+
+**Run Practical 5:**
 
 ```bash
-curl -fL https://raw.githubusercontent.com/obstinix/lp3/main/Programs/lp3-programs.sh -o lp3-programs.sh
-chmod +x lp3-programs.sh
-./lp3-programs.sh list
-./lp3-programs.sh download daa quicksort
-./lp3-programs.sh download all
+cd BT
+chmod +x setup-fabric.sh
+./setup-fabric.sh          # install, start network, deploy chaincode, run demo
+./setup-fabric.sh status   # list Fabric containers
+./setup-fabric.sh down     # stop the network
+./setup-fabric.sh clean    # stop and remove generated data
 ```
 
-On Windows PowerShell or CMD:
+## DAA: Design and Analysis of Algorithms
 
-```powershell
-curl.exe -fL https://raw.githubusercontent.com/obstinix/lp3/main/Programs/lp3-programs.ps1 -o lp3-programs.ps1
-powershell -ExecutionPolicy Bypass -File .\lp3-programs.ps1 list
-powershell -ExecutionPolicy Bypass -File .\lp3-programs.ps1 download ml diabetes
-```
+| Program | Files | Input |
+|---|---|---|
+| Fibonacci (iterative and recursive, step count) | `fibonacci.cpp`, `fibonacci_recursive.py`, `fibonacci_non_recursive.py` | number of terms |
+| Huffman encoding (greedy) | `huffman.cpp` | number of characters, then `char frequency` pairs |
+| 0/1 Knapsack (dynamic programming) | `knapsack.cpp` | number of items, then `weight profit` pairs, then capacity |
+| N-Queens (backtracking) | `nqueens.cpp`, `nqueens.py` | number of queens |
+| Quick sort, deterministic and randomized | `quicksort.cpp`, `quicksort.py` | array size; the elements are random |
 
-The menu uses these names:
+Each topic also has a `*_viva.md` file.
 
-| Category | Names |
-|---|---|
-| `bt` | `simplestorage`, `bank`, `studentregistry`, `setup-fabric` |
-| `daa` | `fibonacci`, `huffman`, `knapsack`, `nqueens`, `quicksort` |
-| `ml` | `uber`, `email-spam`, `bank-churn`, `diabetes`, `sales` |
+**Dependencies:** `g++` with C++17 support and Python 3. No extra packages are needed.
 
-To save files somewhere else with the Bash menu, set
-`LP3_OUTPUT_DIR=./my-folder`. With the PowerShell menu, pass `-OutputDir`.
-
-## Installation and execution
-
-### DAA: C++
-
-Install `g++`. On Ubuntu, run `sudo apt install g++`. On Windows, install
-MinGW-w64 and add it to `PATH`.
+**Run:**
 
 ```bash
-g++ Programs/DAA/quicksort.cpp -std=c++17 -O2 -o quicksort
-./quicksort
+cd DAA
+g++ -std=c++17 -O2 knapsack.cpp -o knapsack
+./knapsack
+python3 nqueens.py
 ```
 
-On Windows, run `quicksort.exe` instead. The same steps work for `fibonacci`,
-`huffman`, `knapsack` and `nqueens`.
+On Windows, run `knapsack.exe` instead of `./knapsack`, and `py` instead of `python3`.
 
-### DAA: Python
+**Expected outputs:**
+
+- Fibonacci with `10` prints `0 1 1 2 3 5 8 13 21 34` and makes 276 recursive calls.
+- Huffman with `a 5, b 9, c 12, d 13, e 16, f 45` gives `f:0 c:100 d:101 a:1100 b:1101 e:111`.
+- Knapsack with weights and profits `10 60, 20 100, 30 120` and capacity `50` gives `Maximum Profit = 220`, using items 3 and 2.
+- N-Queens with `4` finds 2 solutions and prints both boards.
+- Quick sort prints the random array, then both sorted versions with their run times.
+
+## ML: Machine Learning
+
+| Notebook | Experiment | Dataset (in `ML/`) |
+|---|---|---|
+| `ML_1_UBER.ipynb` | Uber fare prediction: Linear Regression vs Random Forest | `uber.csv` (200,000 rows) |
+| `ML_2_EMAIL_SPAM.ipynb` | Email spam classification: KNN vs SVM | `emails.csv` (5,172 emails, word counts) |
+| `ML_3_BANK_CHURN.ipynb` | Bank customer churn: neural network | `Churn_Modelling.csv` (10,000 customers) |
+| `ML_5_DIABETES.ipynb` | Diabetes prediction: KNN | `diabetes.csv` (768 patients) |
+| `ML_6_SALES.ipynb` | Sales clustering: K-Means and hierarchical | `sales_data_sample.csv` (2,823 orders) |
+
+Each notebook loads its CSV by file name, so run the notebooks from inside `ML/`.
+
+**Dependencies:**
 
 ```bash
-python3 "DAA/1_Fibonacci Series/recursive.py"
-python3 "DAA/5_nqueens/nqueens.py"
-python3 "DAA/6_quick sort analysis/quicksort.py"
-```
-
-On Windows, use `py` instead of `python3`.
-
-### ML: Jupyter notebooks
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate          # Windows: .venv\Scripts\activate
 pip install notebook pandas numpy scikit-learn matplotlib seaborn tensorflow
-python -m notebook Programs/ML/ML_5_DIABETES.ipynb
 ```
 
-Put the dataset CSV for a notebook next to it before you run its cells.
+TensorFlow is needed only for `ML_3_BANK_CHURN.ipynb`.
 
-### BT: Solidity (Practicals 1 to 4)
-
-1. Open the `.sol` file from `Programs/BT/` in [Remix IDE](https://remix.ethereum.org/).
-2. Select a Solidity `0.8.20` or newer compiler, then compile.
-3. Deploy with an injected MetaMask provider on Sepolia, using test ETH only.
-
-The step-by-step instructions are in `BT/Practical N/instruction.md`.
-
-### BT: Hyperledger Fabric (Practical 5)
-
-Run these on Ubuntu/Linux or WSL, with Docker available:
+**Run:**
 
 ```bash
-chmod +x Programs/BT/setup-fabric.sh
-./Programs/BT/setup-fabric.sh           # set up network and deploy chaincode
-./Programs/BT/setup-fabric.sh status
-./Programs/BT/setup-fabric.sh down
-./Programs/BT/setup-fabric.sh clean
-./Programs/BT/setup-fabric.sh help
+cd ML
+jupyter notebook ML_5_DIABETES.ipynb
 ```
 
-## Usage examples
+**Expected outputs:**
 
-```bash
-# Compile and run N-Queens
-g++ Programs/DAA/nqueens.cpp -std=c++17 -O2 -o nqueens && ./nqueens
+These are approximate. The neural network varies slightly between runs.
 
-# Download only the Bank contract and the Huffman program
-./lp3-programs.sh download bt bank
-./lp3-programs.sh download daa huffman
-```
-
-[`Programs/cmd.md`](Programs/cmd.md) has the download and run commands for
-every file, for Windows CMD, PowerShell and Ubuntu/Linux.
-
-## Notes
-
-- Read scripts before you run them. `setup-fabric.sh` installs packages and uses `sudo`.
-- Use test wallets and test ETH only. Never share a Secret Recovery Phrase or a private key.
+- Uber: Random Forest scores R² ≈ 0.78 and RMSE ≈ 1.95. Linear Regression scores R² ≈ 0.57.
+- Email spam: SVM accuracy ≈ 0.96. KNN accuracy ≈ 0.86.
+- Bank churn: neural network accuracy ≈ 0.86, with a confusion matrix and classification report.
+- Diabetes: KNN accuracy ≈ 0.69, with a confusion matrix and classification report.
+- Sales: K-Means silhouette ≈ 0.41. Hierarchical silhouette ≈ 0.38. Also shows elbow and dendrogram plots.
