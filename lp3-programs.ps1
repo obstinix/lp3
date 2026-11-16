@@ -12,7 +12,7 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
-$BaseUrl = "https://raw.githubusercontent.com/obstinix/lp3/main/Programs"
+$BaseUrl = "https://raw.githubusercontent.com/obstinix/lp3/main"
 
 function Show-Usage {
     @"

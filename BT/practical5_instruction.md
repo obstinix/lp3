@@ -65,7 +65,7 @@ When run without an argument, `setup-fabric.sh`:
 Download the script from its GitHub repository after it has been published:
 
 ```bash
-curl -fLO "https://raw.githubusercontent.com/obstinix/lp3/main/BT/Practical%205/setup-fabric.sh"
+curl -fLO "https://raw.githubusercontent.com/obstinix/lp3/main/BT/setup-fabric.sh"
 ```
 
 Inspect it before running:

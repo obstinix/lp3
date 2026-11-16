@@ -2,7 +2,7 @@
 
 set -Eeuo pipefail
 
-BASE_URL="https://raw.githubusercontent.com/obstinix/lp3/main/Programs"
+BASE_URL="https://raw.githubusercontent.com/obstinix/lp3/main"
 DEFAULT_OUTPUT_DIR="${LP3_OUTPUT_DIR:-LP-3-Programs}"
 
 usage() {
